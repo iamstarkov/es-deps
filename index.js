@@ -4,7 +4,7 @@ import pify from 'pify';
 import Promise from 'pinkie-promise';
 import _fs from 'fs';
 
-const fs = pify(_fs);
+const fs = pify(_fs, Promise);
 
 const resolve = Promise.resolve.bind(Promise);
 const reject = Promise.reject.bind(Promise);
