@@ -7,6 +7,9 @@
 
 > ECMAScript 2015+/CommonJS module dependencies array
 
+This package handles es2015+ modules, and 'cause CommonJS won't go away anytime soon, it also
+takes care of non-dynamic `require`s.
+
 ## Install
 
     npm install --save es-deps
@@ -16,28 +19,33 @@
 ```js
 import esDeps from 'es-deps';
 
-esDeps('unicorns'); // unicorns
+esDeps('./fixture.js')
+  .then(result => console.log(result)); /* [
+    'out', './local',
+    'q', 'fs', './local-cjs', 'globalImport',
+  ] */
 ```
 
 ## API
 
-### esDeps(input, [options])
+### esDeps(file)
 
-#### input
+    // esDeps :: String -> Promise Array[String]
+
+Return a promise that resolves to dependencies array of String.
+
+#### file
 
 *Required*  
 Type: `String`
 
-Lorem ipsum.
+Path to JavaScript file.
 
-#### options
+## Related
 
-##### foo
+* [es-deps-from-string][from-string] same but for string
 
-Type: `Boolean`  
-Default: `false`
-
-Lorem ipsum.
+[from-string]:  https://github.com/iamstarkov/es-deps-from-string
 
 ## License
 
