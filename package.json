@@ -59,6 +59,6 @@
     "es-deps-from-string": "^1.0.0",
     "pify": "^2.3.0",
     "pinkie-promise": "^2.0.0",
-    "ramda": "^0.20.1"
+    "ramda": "^0.21.0"
   }
 }
