@@ -1,5 +1,5 @@
 import test from 'ava';
-import esDeps from '../index';
+import esDeps from './index';
 
 const expected = [
   'out', './local',
