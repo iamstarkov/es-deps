@@ -43,9 +43,13 @@ Path to JavaScript file.
 
 ## Related
 
-* [es-deps-from-string][from-string] same but for string
+* [es-deps-from-string][es-deps-from-string] — ECMAScript 2015+/CommonJS module dependencies array from string
+* [es-deps-resolved][es-deps-resolved] — ECMAScript 2015+/CommonJS module dependencies resolved array
+* [es-dep-unit][es-dep-unit] — Constructor for ECMAScript 2015+/CommonJS dependency unit `Object { requested, from, resolved }`
 
-[from-string]:  https://github.com/iamstarkov/es-deps-from-string
+[es-deps-from-string]: https://github.com/iamstarkov/es-deps-from-string
+[es-deps-resolved]: https://github.com/iamstarkov/es-deps-resolved
+[es-dep-unit]: https://github.com/iamstarkov/es-dep-unit
 
 ## License
 
