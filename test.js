@@ -6,7 +6,6 @@ const expected = [
   'q', 'fs', './local-cjs', 'globalImport',
 ];
 
-
 test('should esDeps', async t => t.deepEqual(
   await esDeps('./fixtures/index.js'),
   expected
