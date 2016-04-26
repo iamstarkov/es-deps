@@ -8,7 +8,6 @@ import contract from 'neat-contract';
 const fs = pify(_fs, Promise);
 
 const resolve = Promise.resolve.bind(Promise);
-const reject = Promise.reject.bind(Promise);
 
 // esDeps :: String -> Promise Array[String]
 const esDeps = R.binary(R.pipeP(resolve,

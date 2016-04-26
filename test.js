@@ -6,8 +6,11 @@ const expected = [
   'q', 'fs', './local-cjs', 'globalImport',
 ];
 
-test('should esDeps', t => esDeps('./fixtures/simple.js')
-  .then(result => t.same(result, expected)));
 
-test('should reject on empty input', t => t.throws(esDeps(), TypeError));
-test('should reject on invalid input', t => t.throws(esDeps(2), TypeError));
+test('should esDeps', async t => t.deepEqual(
+  await esDeps('./fixture.js'),
+  expected
+));
+
+test('empty input', t => t.throws(esDeps(), TypeError));
+test('invalid input', t => t.throws(esDeps(2), TypeError));
