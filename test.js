@@ -8,7 +8,7 @@ const expected = [
 
 
 test('should esDeps', async t => t.deepEqual(
-  await esDeps('./fixture.js'),
+  await esDeps('./fixtures/index.js'),
   expected
 ));
 
