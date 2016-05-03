@@ -16,7 +16,7 @@ const toPromise = Promise.resolve.bind(Promise);
 const esDeps = R.unary(R.pipeP(toPromise,
   contract('file', String),
   readFile(R.__, 'utf8'),
-  esDepsFromString
+  R.memoize(esDepsFromString)
 ));
 
 export default esDeps;
