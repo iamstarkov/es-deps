@@ -12,11 +12,22 @@ const readFile = R.curryN(2, pify(_fs.readFile, Promise));
 // toPromise :: a -> Promise a
 const toPromise = Promise.resolve.bind(Promise);
 
-// esDeps :: String -> Promise Array[String]
-const esDeps = R.unary(R.pipeP(toPromise,
-  contract('file', String),
-  readFile(R.__, 'utf8'),
-  R.memoize(esDepsFromString)
-));
+// parsing :: String :: String -> Promise [String]
+const parsing = file => m => Promise.resolve(m)
+  .then(R.memoize(esDepsFromString))
+  .catch(_err => {
+    const err = _err;
+    err.message += ` in ${file}`;
+    return Promise.reject(err);
+  });
+
+// esDeps :: String -> Promise [String]
+function esDeps(file) {
+  return R.pipeP(toPromise,
+    contract('file', String),
+    readFile(R.__, 'utf8'),
+    parsing(file)
+  )(file);
+}
 
 export default esDeps;
