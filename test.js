@@ -1,8 +1,9 @@
 import test from 'ava';
 import esDeps from './index';
+import { join } from 'path';
 
 test('should esDeps', async t => {
-  const actual = await esDeps('./fixtures/index.js');
+  const actual = await esDeps(join(__dirname, './fixtures/index.js'));
   const expected = [
     'out', './local',
     'q', 'fs', './local-cjs', 'globalImport',
@@ -12,8 +13,8 @@ test('should esDeps', async t => {
 
 test('throw decent error on bad files', t => {
   t.throws(
-    esDeps('./fixtures/bad.js'),
-    'Unexpected token (1:0) in ./fixtures/bad.js'
+    esDeps(join(__dirname, './fixtures/bad.js')),
+    `Unexpected token (1:0) in ${join(__dirname, './fixtures/bad.js')}`
   );
 });
 
